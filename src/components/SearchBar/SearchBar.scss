@@ -1,0 +1,113 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #dddddd;
+  border-radius: 40px;
+  background: #ffffff;
+  max-width: 860px;
+  width: 100%;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease;
+border-bottom: 1px solid #ebebeb;
+  &:focus-within {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  &__divider {
+    width: 1px;
+    height: 24px;
+    background: #dddddd;
+    flex-shrink: 0;
+  }
+
+  &__field {
+    padding: 14px 24px;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: background 0.15s ease;
+    flex: 1 1 0;
+    min-width: 0;
+
+    &:hover,
+    &--active {
+      background: #f7f7f7;
+    }
+
+    &--compact {
+      flex: 0 0 auto;
+    }
+
+    &--last {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 8px 8px 24px;
+    }
+  }
+
+  &__label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #222222;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 13px;
+    font-family: inherit;
+    color: #222222;
+    width: 100%;
+    cursor: pointer;
+    padding: 0;
+
+    &::placeholder {
+      color: #b0b0b0;
+    }
+
+    &--short {
+      width: 90px;
+    }
+
+    &--guests {
+      width: 100px;
+    }
+  }
+
+  &__who {
+    flex: 1;
+  }
+
+  &__btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(to right, #e61e4d, #e31c5f, #d70466);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    box-shadow: 0 4px 12px rgba(214, 4, 102, 0.35);
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(214, 4, 102, 0.45);
+    }
+
+    &:active {
+      transform: scale(0.97);
+    }
+
+    svg {
+      display: block;
+    }
+  }
+}

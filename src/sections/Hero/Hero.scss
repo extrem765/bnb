@@ -1,3 +1,39 @@
 .hero {
-  padding-block: 50px;
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+
+    /* ВИПРАВЛЕНО: додано тип лінії та колір */
+    border-bottom: 1px solid #f7abab; 
+    
+  
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background: oklab(100% 0 -0.00011); // замінити на img
+    overflow: hidden;    // overflow тут — тільки для фону
+    z-index: 0;
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    min-height: inherit;
+  }
+
+  &__search {
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 860px;
+    padding: 0 16px;
+    z-index: 10;
+    margin-top: 26px; // додано для відступу від Hero при скролі
+    
+  }
 }
+
