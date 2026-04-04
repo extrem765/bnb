@@ -4,7 +4,7 @@
   min-height: 480px;
 
     /* ВИПРАВЛЕНО: додано тип лінії та колір */
-    border-bottom: 1px solid #f7abab; 
+    border-bottom: 1px solid #e2e2e2; 
     
   
 
@@ -30,10 +30,12 @@
     transform: translateX(-50%);
     width: 100%;
     max-width: 860px;
+  
+  
     padding: 0 16px;
     z-index: 10;
-    margin-top: 26px; // додано для відступу від Hero при скролі
-    
+    margin-top: 26px; 
+  
   }
 }
 
