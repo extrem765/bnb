@@ -1,201 +1,160 @@
 .category-bar {
   display: flex;
   align-items: center;
-  gap: 0;
-  border-bottom: 1px solid #ebebeb;
+  height: 78px;
   background: #fff;
-  padding: 0 24px;
+  padding: 0 40px;
+  border-bottom: 1px solid #ebebeb;
   position: relative;
-  margin-top: 0px;
+  width: 100%;
+  box-sizing: border-box;
 
-  &__track-wrapper {
+  &__main {
     flex: 1;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
     position: relative;
-
-    // fade на краях
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 40px;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    &::before {
-      left: 0;
-      background: linear-gradient(to right, #fff, transparent);
-    }
-
-    &::after {
-      right: 0;
-      background: linear-gradient(to left, #fff, transparent);
-    }
+    overflow: hidden;
+    height: 100%;
   }
 
   &__track {
     display: flex;
-    gap: 0;
+    align-items: center;
+    gap: 32px;
     overflow-x: auto;
     scroll-behavior: smooth;
+    height: 100%;
     scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    &::-webkit-scrollbar { display: none; }
   }
 
   &__item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
-    padding: 14px 16px 12px;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    white-space: nowrap;
+    justify-content: center;
     flex-shrink: 0;
-    transition: border-color 0.15s, opacity 0.15s;
-    opacity: 0.6;
+    cursor: pointer;
+    border-bottom: 2px solid transparent; // Прозора лінія спочатку
+    padding: 12px 0 10px 0;
+    transition: border-color 0.2s ease;
+    // Жодних фонів чи квадратних рамок тут!
+
+    img {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 4px;
+      opacity: 0.6;
+      filter: grayscale(1); // Сіра іконка
+      transition: opacity 0.2s ease, filter 0.2s ease;
+    }
+
+    span {
+      font-size: 12px;
+      color: #717171;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: color 0.2s ease;
+    }
 
     &:hover {
-      opacity: 1;
-      border-bottom-color: #b0b0b0;
+      border-bottom-color: #ebebeb; // Світла лінія при наведенні
+      img {
+        opacity: 1;
+        filter: grayscale(0); // Кольорова іконка при ховері
+      }
+      span {
+        color: #000;
+      }
     }
 
-    &--active {
-      opacity: 1;
-      border-bottom-color: #222;
+    &.active {
+      border-bottom-color: #000 !important; // Чорна лінія для обраного
+      img {
+        opacity: 1;
+        filter: grayscale(0);
+      }
+      span {
+        color: #000;
+        font-weight: 600;
+      }
     }
-  }
-
-  &__icon {
-    width: 24px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    line-height: 1;
-  }
-
-  &__label {
-    font-size: 12px;
-    font-weight: 500;
-    color: #222;
-    line-height: 1;
   }
 
   &__arrow {
-    width: 32px;
-    height: 32px;
+    position: absolute;
+    z-index: 10;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
-    border: 1px solid #dddddd;
+    border: 1px solid rgba(0,0,0,0.08);
     background: #fff;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    transition: box-shadow 0.15s;
-    z-index: 3;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+    top: 50%;
+    transform: translateY(-50%);
+
+    &--left { left: 0; }
+    &--right { right: 0; }
 
     &:hover {
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
-    }
-
-    svg {
-      display: block;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.16);
+      transform: translateY(-50%) scale(1.04);
     }
   }
 
-  &__right {
+  &__actions {
     display: flex;
     align-items: center;
     gap: 12px;
+    padding-left: 24px;
     flex-shrink: 0;
-    margin-left: 16px;
-    padding-left: 16px;
-    border-left: 1px solid #ebebeb;
   }
 
-  &__filters {
+  .btn-filter, .btn-tax {
+    height: 48px;
+    border: 1px solid #ebebeb;
+    border-radius: 12px;
+    padding: 0 16px;
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 16px;
-    border: 1px solid #dddddd;
-    border-radius: 12px;
     background: #fff;
     cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 12px;
+    font-weight: 600;
     color: #222;
-    white-space: nowrap;
-    transition: box-shadow 0.15s;
 
     &:hover {
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    svg {
-      display: block;
+      border-color: #000;
+      background: #f7f7f7;
     }
   }
 
-  &__toggle {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #222;
-    white-space: nowrap;
-    cursor: pointer;
-  }
-
-  &__switch {
-    position: relative;
-    width: 44px;
+  .switch {
+    width: 40px;
     height: 24px;
-
-    input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    &-track {
-      position: absolute;
-      inset: 0;
-      border-radius: 24px;
-      background: #dddddd;
-      transition: background 0.2s;
-      cursor: pointer;
-
-      &::after {
-        content: '';
-        position: absolute;
-        top: 3px;
-        left: 3px;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        background: #fff;
-        transition: transform 0.2s;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-      }
-    }
-
-    input:checked + &-track {
+    background: #b0b0b0;
+    border-radius: 12px;
+    position: relative;
+    transition: background 0.3s;
+    &.on {
       background: #222;
-
-      &::after {
-        transform: translateX(20px);
-      }
+      .handle { transform: translateX(16px); }
+    }
+    .handle {
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.3s;
     }
   }
 }
