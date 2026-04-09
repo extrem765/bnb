@@ -1,12 +1,9 @@
-import '@/styles'
 import { Head } from 'minista'
-import Header from '@/layouts/Header'
+import '@/styles' 
+// ПЕРЕВІР ЦЕЙ ШЛЯХ (має вести до теки з твоїм Header.jsx)
+import Header from '@/layouts/Header' 
 import Content from '@/layouts/Content'
 import Footer from '@/layouts/Footer'
-import appleTouchIcon from '@/assets/favicons/apple-touch-icon.png'
-import favicon32 from '@/assets/favicons/favicon-32x32.png'
-import favicon16 from '@/assets/favicons/favicon-16x16.png'
-import manifest from '@/assets/favicons/site.webmanifest'
 
 export default (props) => {
   const { children, title, url } = props
@@ -14,14 +11,18 @@ export default (props) => {
   return (
     <>
       <Head htmlAttributes={{ lang: 'en' }}>
-        <title>Friendly Frontend Starter | {title}</title>
-        <script src="/src/main.js" type="module" />
-        <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon} />
-        <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
-        <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
-        <link rel="manifest" href={manifest} />
+        <title>Airbnb | {title}</title>
+        {/* Підключаємо "оживляючий" скрипт */}
+        <script src="/src/main.jsx" type="module" />
       </Head>
-      <Header url={url} />
+
+      {/* Ми залишаємо Header тут, щоб Ministra відрендерила його статично (для SEO та швидкості).
+        React у main.jsx потім "підхопить" цей же блок за id.
+      */}
+      <div id="header-root">
+        <Header url={url} />
+      </div>
+
       <Content>{children}</Content>
       <Footer />
     </>

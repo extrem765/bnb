@@ -9,6 +9,11 @@
   width: 100%;
   box-sizing: border-box;
 
+  @media (max-width: 768px) {
+    padding: 0 16px;
+    height: 64px;
+  }
+
   &__main {
     flex: 1;
     display: flex;
@@ -17,25 +22,32 @@
     overflow: hidden;
     height: 100%;
   }
-&__track {
-  display: flex;
-  align-items: center;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  height: 100%;
-  width: 100%;
-  scrollbar-width: none;
-  &::-webkit-scrollbar { display: none; }
-}
 
-&__track-inner {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  min-width: 100%;
-  justify-content: space-evenly; ;
-  padding: 0 8px;
-}
+  &__track {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    height: 100%;
+    width: 100%;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+  }
+
+  &__track-inner {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    min-width: 100%;
+    justify-content: space-evenly;
+    padding: 0 8px;
+
+    @media (max-width: 768px) {
+      gap: 16px;
+      justify-content: flex-start;
+    }
+  }
+
   &__item {
     display: flex;
     flex-direction: column;
@@ -43,17 +55,16 @@
     justify-content: center;
     flex-shrink: 0;
     cursor: pointer;
-    border-bottom: 2px solid transparent; // Прозора лінія спочатку
+    border-bottom: 2px solid transparent;
     padding: 12px 0 10px 0;
     transition: border-color 0.2s ease;
-    // Жодних фонів чи квадратних рамок тут!
 
     img {
       width: 24px;
       height: 24px;
       margin-bottom: 4px;
       opacity: 0.6;
-      filter: grayscale(1); // Сіра іконка
+      filter: grayscale(1);
       transition: opacity 0.2s ease, filter 0.2s ease;
     }
 
@@ -63,29 +74,22 @@
       font-weight: 500;
       white-space: nowrap;
       transition: color 0.2s ease;
+
+      @media (max-width: 480px) {
+        display: none;
+      }
     }
 
     &:hover {
-      border-bottom-color: #ebebeb; // Світла лінія при наведенні
-      img {
-        opacity: 1;
-        filter: grayscale(0); // Кольорова іконка при ховері
-      }
-      span {
-        color: #000;
-      }
+      border-bottom-color: #ebebeb;
+      img { opacity: 1; filter: grayscale(0); }
+      span { color: #000; }
     }
 
     &.active {
-      border-bottom-color: #000 !important; // Чорна лінія для обраного
-      img {
-        opacity: 1;
-        filter: grayscale(0);
-      }
-      span {
-        color: #000;
-        font-weight: 600;
-      }
+      border-bottom-color: #000 !important;
+      img { opacity: 1; filter: grayscale(0); }
+      span { color: #000; font-weight: 600; }
     }
   }
 
@@ -95,13 +99,13 @@
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    border: 1px solid rgba(0,0,0,0.08);
+    border: 1px solid rgba(0, 0, 0, 0.08);
     background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
     top: 50%;
     transform: translateY(-50%);
 
@@ -109,7 +113,7 @@
     &--right { right: 0; }
 
     &:hover {
-      box-shadow: 0 2px 8px rgba(0,0,0,0.16);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16);
       transform: translateY(-50%) scale(1.04);
     }
   }
@@ -120,9 +124,14 @@
     gap: 12px;
     padding-left: 24px;
     flex-shrink: 0;
+
+    @media (max-width: 768px) {
+      padding-left: 12px;
+      gap: 8px;
+    }
   }
 
-  .btn-filter, .btn-tax {
+  .btn-filter {
     height: 48px;
     border: 1px solid #ebebeb;
     border-radius: 12px;
@@ -142,6 +151,30 @@
     }
   }
 
+  .btn-tax {
+    height: 48px;
+    border: 1px solid #ebebeb;
+    border-radius: 12px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    color: #222;
+
+    &:hover {
+      border-color: #000;
+      background: #f7f7f7;
+    }
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
   .switch {
     width: 40px;
     height: 24px;
@@ -149,10 +182,12 @@
     border-radius: 12px;
     position: relative;
     transition: background 0.3s;
+
     &.on {
       background: #222;
       .handle { transform: translateX(16px); }
     }
+
     .handle {
       width: 20px;
       height: 20px;
