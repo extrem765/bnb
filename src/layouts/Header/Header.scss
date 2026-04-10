@@ -162,13 +162,15 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding: 24px;
+    padding: 44px;
+  
   }
 
-  background: #fff;
+  background: hsl(0, 0%, 100%);
   border-radius: 16px;
   width: 100%;
-  max-width: 1020px;
+  max-width: 1220px;
+ 
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -232,7 +234,8 @@
   &__body {
     padding: 24px;
     overflow-y: auto;
-    max-height: 520px;
+    max-height: 930px;
+    margin-top: 30px;
   }
 
   &__translate {
@@ -255,7 +258,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 14px;
+      font-size: 18px;
       font-weight: 500;
       color: #222;
     }
@@ -349,7 +352,7 @@
 
   &__item-lang {
     display: block;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 500;
     color: #222;
   }
