@@ -52,6 +52,7 @@ const RECOMMENDED = ['en-US', 'en-GB', 'uk']
 export default function Header({ url }) {
   const { t, i18n } = useTranslation()
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isProfileOpen, setIsProfileOpen] = useState(false)
 
   useEffect(() => {
     document.body.style.overflow = isModalOpen ? 'hidden' : 'unset'
@@ -104,13 +105,53 @@ export default function Header({ url }) {
               </svg>
             </button>
 
-            <button className="header__profile-button">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="18" x2="21" y2="18" />
-              </svg>
-            </button>
+            <div className="header__profile-wrapper">
+              <button
+                className={clsx('header__profile-button', isProfileOpen && 'is-active')}
+                onClick={() => setIsProfileOpen(prev => !prev)}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+              </button>
+
+              {isProfileOpen && (
+                <>
+                  <div className="profile-dropdown__backdrop" onClick={() => setIsProfileOpen(false)} />
+                  <div className="profile-dropdown">
+                    <a href="/help" className="profile-dropdown__item profile-dropdown__item--help">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                      </svg>
+                      {t('dropdown.helpCenter')}
+                    </a>
+
+                    <div className="profile-dropdown__divider" />
+
+                    <a href="/host" className="profile-dropdown__item profile-dropdown__item--host">
+                      <div className="profile-dropdown__host-text">
+                        <span className="profile-dropdown__host-title">{t('dropdown.becomeHost')}</span>
+                        <span className="profile-dropdown__host-desc">{t('dropdown.becomeHostDesc')}</span>
+                      </div>
+                      <img src="/host-illustration.png" alt="" className="profile-dropdown__host-img" />
+                    </a>
+
+                    <div className="profile-dropdown__divider" />
+
+                    <a href="/invite-host" className="profile-dropdown__item">{t('dropdown.inviteHost')}</a>
+                    <a href="/find-cohost" className="profile-dropdown__item">{t('dropdown.findCohost')}</a>
+
+                    <div className="profile-dropdown__divider" />
+
+                    <a href="/login" className="profile-dropdown__item">{t('dropdown.signIn')}</a>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </header>
