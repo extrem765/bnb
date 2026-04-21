@@ -1,18 +1,17 @@
-
 import { useState } from "react";
 import "./SearchBar.scss";
 
 const SearchIcon = () => (
-  <svg
-    width="16"
-    height="16"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="white"
-    strokeWidth="3"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+    stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="11" cy="11" r="8" />
+    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+  </svg>
+);
+
+const SearchIconDark = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+    stroke="#222" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="11" cy="11" r="8" />
     <line x1="21" y1="21" x2="16.65" y2="16.65" />
   </svg>
@@ -20,32 +19,30 @@ const SearchIcon = () => (
 
 export default function SearchBar({ onSearch }) {
   const [activeField, setActiveField] = useState(null);
-  const [where, setWhere] = useState("");
-  const [checkIn, setCheckIn] = useState("");
-  const [checkOut, setCheckOut] = useState("");
-  const [guests, setGuests] = useState("");
+  const [where, setWhere]     = useState("");
+  const [checkIn, setCheckIn]   = useState("");
+  const [checkOut, setCheckOut]  = useState("");
+  const [guests, setGuests]    = useState("");
 
-  const handleSearch = () => {
-    onSearch?.({ where, checkIn, checkOut, guests });
-  };
+  const handleSearch = () => onSearch?.({ where, checkIn, checkOut, guests });
 
   const fieldClass = (name) =>
     ["search-bar__field", activeField === name ? "search-bar__field--active" : ""]
-      .filter(Boolean)
-      .join(" ");
+      .filter(Boolean).join(" ");
 
   return (
     <div className="search-bar">
-      {/* Where */}
+      {/* Where — на мобільному залишається як єдине поле */}
       <div
         className={fieldClass("where")}
         onClick={() => document.getElementById("sb-where").focus()}
       >
+        {/* іконка вставляється через ::before у CSS на мобільному */}
         <div className="search-bar__label">Where</div>
         <input
           id="sb-where"
           className="search-bar__input"
-          placeholder="Search destinations"
+          placeholder="Почати пошук"
           value={where}
           onChange={(e) => setWhere(e.target.value)}
           onFocus={() => setActiveField("where")}
@@ -110,13 +107,9 @@ export default function SearchBar({ onSearch }) {
             onBlur={() => setActiveField(null)}
           />
         </div>
-
         <button
           className="search-bar__btn"
-          onClick={(e) => {
-            e.stopPropagation();
-            handleSearch();
-          }}
+          onClick={(e) => { e.stopPropagation(); handleSearch(); }}
           aria-label="Search"
         >
           <SearchIcon />
