@@ -1,0 +1,17 @@
+{
+  "categories": [
+    { "id": "beachfront", "icon": "1.jpg", "label": "Beachfront" },
+    { "id": "views", "icon": "2.jpg", "label": "Amazing views" },
+    { "id": "cabins", "icon": "3.jpg", "label": "Cabins" },
+    { "id": "lakefront", "icon": "4.jpg", "label": "Lakefront" },
+    { "id": "yurts", "icon": "5.jpg", "label": "Yurts" },
+    { "id": "treehouses", "icon": "6.jpg", "label": "Treehouses" },
+    { "id": "domes", "icon": "7.jpg", "label": "Domes" },
+    { "id": "omg", "icon": "8.jpg", "label": "OMG!" },
+    { "id": "mansions", "icon": "9.jpg", "label": "Mansions" },
+    { "id": "nationalparks", "icon": "10.jpg", "label": "National parks" },
+    { "id": "castles", "icon": "11.jpg", "label": "Castles" },
+    { "id": "trending", "icon": "12.jpg", "label": "Trending" },
+    { "id": "houseboats", "icon": "13.jpg", "label": "Houseboats" }
+  ]
+}

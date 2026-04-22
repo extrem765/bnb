@@ -1,35 +1,13 @@
 import { useRef, useState, useEffect } from 'react';
 import './CategoryBar.scss';
+// ❌ Зараз (неправильно)
 
-import beachfrontIcon from '@/assets/images/1.jpg';
-import viewsIcon from '@/assets/images/2.jpg';
-import cabinsIcon from '@/assets/images/3.jpg';
-import lakefrontIcon from '@/assets/images/4.jpg';
-import yurtsIcon from '@/assets/images/5.jpg';
-import treehousesIcon from '@/assets/images/6.jpg';
-import domesIcon from '@/assets/images/7.jpg';
-import omgIcon from '@/assets/images/8.jpg';
-import mansionsIcon from '@/assets/images/9.jpg';
-import nationalparksIcon from '@/assets/images/10.jpg';
-import castlesIcon from '@/assets/images/11.jpg';
-import trendingIcon from '@/assets/images/12.jpg';
-import houseboatsIcon from '@/assets/images/13.jpg';
+// ✅ Має бути
+import categoriesData from './categories.json';
 
-const categories = [
-  { id: 'beachfront', icon: beachfrontIcon, label: 'Beachfront' },
-  { id: 'views', icon: viewsIcon, label: 'Amazing views' },
-  { id: 'cabins', icon: cabinsIcon, label: 'Cabins' },
-  { id: 'lakefront', icon: lakefrontIcon, label: 'Lakefront' },
-  { id: 'yurts', icon: yurtsIcon, label: 'Yurts' },
-  { id: 'treehouses', icon: treehousesIcon, label: 'Treehouses' },
-  { id: 'domes', icon: domesIcon, label: 'Domes' },
-  { id: 'omg', icon: omgIcon, label: 'OMG!' },
-  { id: 'mansions', icon: mansionsIcon, label: 'Mansions' },
-  { id: 'nationalparks', icon: nationalparksIcon, label: 'National parks' },
-  { id: 'castles', icon: castlesIcon, label: 'Castles' },
-  { id: 'trending', icon: trendingIcon, label: 'Trending' },
-  { id: 'houseboats', icon: houseboatsIcon, label: 'Houseboats' },
-];
+// Vite: динамічно імпортуємо всі картинки з папки
+const icons = import.meta.glob('@/assets/images/*.jpg', { eager: true });
+const getIcon = (filename) => icons[`/src/assets/images/${filename}`]?.default;
 
 export default function CategoryBar({ onCategoryChange, onFilterClick }) {
   const trackRef = useRef(null);
@@ -37,6 +15,8 @@ export default function CategoryBar({ onCategoryChange, onFilterClick }) {
   const [taxes, setTaxes] = useState(false);
   const [showLeft, setShowLeft] = useState(false);
   const [showRight, setShowRight] = useState(true);
+
+  const categories = categoriesData.categories; // ✅ виправлено
 
   const checkScroll = () => {
     const el = trackRef.current;
@@ -78,7 +58,7 @@ export default function CategoryBar({ onCategoryChange, onFilterClick }) {
                 className={`category-bar__item ${active === cat.id ? 'active' : ''}`}
                 onClick={() => { setActive(cat.id); onCategoryChange?.(cat.id); }}
               >
-                <img src={cat.icon} alt={cat.label} />
+                <img src={getIcon(cat.icon)} alt={cat.label} /> {/* ✅ виправлено */}
                 <span>{cat.label}</span>
               </div>
             ))}
