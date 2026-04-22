@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import './Card.scss';
 
+const icons = import.meta.glob('@/assets/images/Card/*.png', { eager: true });
+const getIcon = (filename) => icons[`/src/assets/images/Card/${filename}`]?.default;
+
 const Card = ({
   images = [],
   title = 'Title',
@@ -25,7 +28,6 @@ const Card = ({
 
   return (
     <div className="card">
-      {/* IMAGE */}
       <div className="card__media">
         <div
           className="card__slides"
@@ -36,7 +38,7 @@ const Card = ({
               <div
                 key={i}
                 className="card__slide"
-                style={{ backgroundImage: `url(${src})` }}
+                style={{ backgroundImage: `url(${getIcon(src)})` }}
               />
             ))
           ) : (
@@ -44,7 +46,6 @@ const Card = ({
           )}
         </div>
 
-        {/* ARROWS */}
         {images.length > 1 && (
           <>
             {slide > 0 && (
@@ -64,10 +65,8 @@ const Card = ({
           </>
         )}
 
-        {/* BADGE */}
         {isFavourite && <span className="card__badge">Guest favourite</span>}
 
-        {/* HEART */}
         <button
           className={`card__heart ${liked ? 'card__heart--liked' : ''}`}
           onClick={(e) => { e.stopPropagation(); setLiked(!liked); }}
@@ -78,7 +77,6 @@ const Card = ({
           </svg>
         </button>
 
-        {/* DOTS */}
         {images.length > 1 && (
           <div className="card__dots">
             {images.map((_, i) => (
@@ -92,7 +90,6 @@ const Card = ({
         )}
       </div>
 
-      {/* INFO */}
       <div className="card__info">
         <div className="card__row">
           <span className="card__title">{title}</span>
