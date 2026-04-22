@@ -1,6 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
 import './CategoryBar.scss';
-// ❌ Зараз (неправильно)
 
 // ✅ Має бути
 import categoriesData from './categories.json';

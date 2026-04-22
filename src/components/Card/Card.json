@@ -1,0 +1,28 @@
+{
+  "cards": [
+    { "id": 1, "images": [], "title": "Gualala, California, US", "distance": "199 kilometres away", "dates": "27 May – 1 Jun", "price": "₹55,207", "rating": 4.97, "isFavourite": true },
+    { "id": 2, "images": [], "title": "Whitethorn, California, US", "distance": "338 kilometres away", "dates": "1–6 Mar", "price": "₹21,189", "rating": 4.86, "isFavourite": true },
+    { "id": 3, "images": [], "title": "Half Moon Bay, California, US", "distance": "38 kilometres away", "dates": "10–15 Mar", "price": "₹76,596", "rating": 4.95, "isFavourite": false },
+    { "id": 4, "images": [], "title": "Big Sur, California, US", "distance": "148 kilometres away", "dates": "1–6 Mar", "price": "₹1,11,608", "rating": null, "isFavourite": true },
+    { "id": 5, "images": [], "title": "Carmel-by-the-Sea, California", "distance": "104 kilometres away", "dates": "17–22 Mar", "price": "₹32,000", "rating": 5.0, "isFavourite": true },
+    { "id": 6, "images": [], "title": "Santa Cruz, California, US", "distance": "52 kilometres away", "dates": "10–15 Apr", "price": "₹18,500", "rating": 4.9, "isFavourite": false },
+    { "id": 7, "images": [], "title": "Malibu, California, US", "distance": "45 kilometres away", "dates": "5–10 May", "price": "₹98,400", "rating": 4.92, "isFavourite": true },
+    { "id": 8, "images": [], "title": "Monterey, California, US", "distance": "120 kilometres away", "dates": "12–17 Apr", "price": "₹43,200", "rating": 4.78, "isFavourite": false },
+    { "id": 9, "images": [], "title": "Sonoma, California, US", "distance": "75 kilometres away", "dates": "3–8 Jun", "price": "₹61,500", "rating": 4.88, "isFavourite": true },
+    { "id": 10, "images": [], "title": "Lake Tahoe, California, US", "distance": "290 kilometres away", "dates": "20–25 Mar", "price": "₹84,700", "rating": 4.93, "isFavourite": true },
+    { "id": 11, "images": [], "title": "Napa, California, US", "distance": "88 kilometres away", "dates": "15–20 Apr", "price": "₹52,300", "rating": 4.81, "isFavourite": false },
+    { "id": 12, "images": [], "title": "Sedona, Arizona, US", "distance": "510 kilometres away", "dates": "1–6 Apr", "price": "₹73,900", "rating": 4.96, "isFavourite": true },
+    { "id": 13, "images": [], "title": "Scottsdale, Arizona, US", "distance": "480 kilometres away", "dates": "8–13 May", "price": "₹38,600", "rating": 4.74, "isFavourite": false },
+    { "id": 14, "images": [], "title": "Portland, Oregon, US", "distance": "850 kilometres away", "dates": "22–27 Apr", "price": "₹29,800", "rating": 4.85, "isFavourite": true },
+    { "id": 15, "images": [], "title": "Ashland, Oregon, US", "distance": "640 kilometres away", "dates": "10–15 Jun", "price": "₹44,100", "rating": 4.91, "isFavourite": false },
+    { "id": 16, "images": [], "title": "Cannon Beach, Oregon, US", "distance": "920 kilometres away", "dates": "18–23 May", "price": "₹67,200", "rating": 4.89, "isFavourite": true },
+    { "id": 17, "images": [], "title": "Bend, Oregon, US", "distance": "780 kilometres away", "dates": "5–10 Jun", "price": "₹35,400", "rating": 4.77, "isFavourite": false },
+    { "id": 18, "images": [], "title": "Whidbey Island, Washington, US", "distance": "1100 kilometres away", "dates": "25–30 Apr", "price": "₹58,900", "rating": 4.94, "isFavourite": true },
+    { "id": 19, "images": [], "title": "Lopez Island, Washington, US", "distance": "1150 kilometres away", "dates": "14–19 May", "price": "₹72,300", "rating": 4.87, "isFavourite": true },
+    { "id": 20, "images": [], "title": "Leavenworth, Washington, US", "distance": "1050 kilometres away", "dates": "30 Apr – 5 May", "price": "₹41,700", "rating": 4.82, "isFavourite": false },
+    { "id": 21, "images": [], "title": "Bozeman, Montana, US", "distance": "1600 kilometres away", "dates": "7–12 Jun", "price": "₹33,500", "rating": 4.79, "isFavourite": false },
+    { "id": 22, "images": [], "title": "Glacier, Montana, US", "distance": "1750 kilometres away", "dates": "20–25 Jun", "price": "₹89,600", "rating": 4.97, "isFavourite": true },
+    { "id": 23, "images": [], "title": "Jackson, Wyoming, US", "distance": "1400 kilometres away", "dates": "1–6 Jul", "price": "₹1,24,000", "rating": 4.95, "isFavourite": true },
+    { "id": 24, "images": [], "title": "Telluride, Colorado, US", "distance": "1800 kilometres away", "dates": "15–20 Jun", "price": "₹1,08,500", "rating": 4.93, "isFavourite": true }
+  ]
+}
