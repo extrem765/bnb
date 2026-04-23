@@ -4,7 +4,7 @@
   // ─── MEDIA ───────────────────────────────────────────
   &__media {
     position: relative;
-    border-radius: 12px;
+    border-radius: 28px;
     overflow: hidden;
     aspect-ratio: 1 / 1;
     background: #e0e0e0;
@@ -64,18 +64,20 @@
   }
 
   // ─── BADGE ───────────────────────────────────────────
-  &__badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: white;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 4px 8px;
-    border-radius: 4px;
-    z-index: 2;
-    letter-spacing: -0.1px;
-  }
+  // ─── BADGE ───────────────────────────────────────────
+&__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgb(226, 225, 225);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 16px;
+  z-index: 2;
+  letter-spacing: -0.1px;
+  color: black;
+}
 
   // ─── HEART ───────────────────────────────────────────
   &__heart {
@@ -89,8 +91,8 @@
     z-index: 2;
 
     svg {
-      width: 24px;
-      height: 24px;
+      width: 34px;
+      height: 34px;
       fill: rgba(0, 0, 0, 0.4);
       stroke: white;
       stroke-width: 2;
