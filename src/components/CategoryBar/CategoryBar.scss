@@ -1,3 +1,6 @@
+
+
+
 .category-bar {
   display: flex;
   align-items: center;
@@ -9,11 +12,9 @@
   width: 100%;
   box-sizing: border-box;
 
-  @media (max-width: 768px) {
-    padding: 0 16px;
-    height: 64px;
+   @media (max-width: 1024px) {
+    display: none; // ховаємо все меню на планшеті і мобільному
   }
-
   &__main {
     flex: 1;
     display: flex;
@@ -125,9 +126,8 @@
     padding-left: 24px;
     flex-shrink: 0;
 
-    @media (max-width: 768px) {
-      padding-left: 12px;
-      gap: 8px;
+    @media (max-width: 1024px) {
+      display: none;
     }
   }
 
@@ -168,10 +168,6 @@
     &:hover {
       border-color: #000;
       background: #f7f7f7;
-    }
-
-    @media (max-width: 1024px) {
-      display: none;
     }
   }
 
