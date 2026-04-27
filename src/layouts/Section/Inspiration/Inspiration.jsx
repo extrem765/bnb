@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import './Inspiration.scss'
 
 const TABS = ['Popular', 'Arts & culture', 'Outdoors', 'Mountains', 'Beach', 'Unique stays', 'Categories', 'Things to do']
@@ -96,6 +96,9 @@ const VISIBLE_COUNT = 17
 export default function Inspiration() {
   const [activeTab, setActiveTab] = useState('Popular')
   const [expanded, setExpanded] = useState(false)
+  const [showArrow, setShowArrow] = useState(false)
+
+  const tabsRef = useRef(null)
 
   const items = DESTINATIONS[activeTab] || []
   const visibleItems = expanded ? items : items.slice(0, VISIBLE_COUNT)
@@ -105,21 +108,51 @@ export default function Inspiration() {
     setExpanded(false)
   }
 
+  const handleArrowClick = () => {
+    tabsRef.current?.scrollBy({ left: 200, behavior: 'smooth' })
+  }
+
+  const handleScroll = () => {
+    const el = tabsRef.current
+    if (!el) return
+    const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 4
+    setShowArrow(!atEnd)
+  }
+
+  useEffect(() => {
+    const el = tabsRef.current
+    if (!el) return
+    const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 4
+    setShowArrow(!atEnd)
+  }, [activeTab])
+
   return (
     <section className="inspiration">
       <div className="inspiration__inner container">
         <h2 className="inspiration__title">Inspiration for future getaways</h2>
 
-        <div className="inspiration__tabs">
-          {TABS.map((tab) => (
-            <button
-              key={tab}
-              className={`inspiration__tab ${activeTab === tab ? 'inspiration__tab--active' : ''}`}
-              onClick={() => handleTabChange(tab)}
-            >
-              {tab}
+        <div className="inspiration__tabs-wrapper">
+          <div
+            className="inspiration__tabs"
+            ref={tabsRef}
+            onScroll={handleScroll}
+          >
+            {TABS.map((tab) => (
+              <button
+                key={tab}
+                className={`inspiration__tab ${activeTab === tab ? 'inspiration__tab--active' : ''}`}
+                onClick={() => handleTabChange(tab)}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          {showArrow && (
+            <button className="inspiration__tabs-arrow" onClick={handleArrowClick}>
+              ›
             </button>
-          ))}
+          )}
         </div>
 
         <div className="inspiration__grid">
