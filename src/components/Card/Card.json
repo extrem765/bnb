@@ -27,6 +27,14 @@
     { "id": 25, "images": ["1.png"], "title": "Aspen, Colorado, US", "distance": "1850 kilometres away", "dates": "22–27 Jun", "price": "₹1,32,000", "rating": 4.96, "isFavourite": false },
     { "id": 26, "images": ["1.png"], "title": "Moab, Utah, US", "distance": "1650 kilometres away", "dates": "10–15 Jul", "price": "₹47,800", "rating": 4.83, "isFavourite": true },
     { "id": 27, "images": ["1.png"], "title": "Park City, Utah, US", "distance": "1550 kilometres away", "dates": "5–10 Jul", "price": "₹91,200", "rating": 4.91, "isFavourite": false },
-    { "id": 28, "images": ["1.png"], "title": "Sun Valley, Idaho, US", "distance": "1300 kilometres away", "dates": "18–23 Jul", "price": "₹78,400", "rating": 4.88, "isFavourite": true }
+    { "id": 28, "images": ["1.png"], "title": "Sun Valley, Idaho, US", "distance": "1300 kilometres away", "dates": "18–23 Jul", "price": "₹78,400", "rating": 4.88, "isFavourite": true },
+    { "id": 29, "images": ["1.png"], "title": "Taos, New Mexico, US", "distance": "1950 kilometres away", "dates": "25–30 Jul", "price": "₹56,300", "rating": 4.86, "isFavourite": true },
+   { "id": 30, "images": ["1.png"], "title": "Santa Fe, New Mexico, US", "distance": "1900 kilometres away", "dates": "1–6 Aug", "price": "₹69,700", "rating": 4.9, "isFavourite": false }
+
+
+
   ]
+
+
+
 }
