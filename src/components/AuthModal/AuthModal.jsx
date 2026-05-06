@@ -13,7 +13,7 @@ export default function AuthModal({ onClose }) {
     const emailLike = v.includes('@')
     if (emailLike) {
       const ok = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)
-      return ok ? '' : 'Невірний формат email'
+      return ok ? '' : 'Невірний format email'
     }
     const digits = v.replace(/\D/g, '')
     return digits.length >= 6 ? '' : 'Невірний номер телефону'
@@ -77,12 +77,13 @@ export default function AuthModal({ onClose }) {
           </div>
 
           <div className="auth-modal__socials">
-            <button className="auth-modal__social">
+            {/* Прямі посилання для Google та Apple */}
+            <a href="https://accounts.google.com/signin" className="auth-modal__social">
               <img src="/google.svg" alt="Google" />
-            </button>
-            <button className="auth-modal__social">
+            </a>
+            <a href="https://appleid.apple.com/auth/authorize" className="auth-modal__social">
               <img src="/apple.svg" alt="Apple" />
-            </button>
+            </a>
           </div>
         </div>
 
