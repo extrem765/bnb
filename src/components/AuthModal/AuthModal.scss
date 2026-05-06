@@ -10,21 +10,27 @@
 
 .auth-modal {
   width: 100%;
-  max-width: 568px;
+  max-width: 550px;
+  min-height: 550px;
   background: #fff;
-  border-radius: 16px;
-  padding: 24px 40px 40px;
-  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+
+.auth-modal__header {
+  display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #ebebeb;
+  position: relative;
 }
 
 .auth-modal__close {
   position: absolute;
-  top: 20px;
-  left: 24px;
+  right: 24px;
   width: 32px;
   height: 32px;
   border: none;
@@ -34,6 +40,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  font-size: 16px;
+  color: #222;
   transition: background 0.2s;
 
   &:hover {
@@ -42,8 +50,6 @@
 }
 
 .auth-modal__logo {
-  margin-top: 8px;
-
   svg,
   img {
     height: 32px;
@@ -51,12 +57,23 @@
     color: #ff385c;
   }
 }
+.auth-modal__body {
+  padding: 32px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex: 1;
+}
 
 .auth-modal__title {
   font-size: 22px;
   font-weight: 600;
-  text-align: center;
+  text-align: left;
   margin: 0;
+  color: #222;
+  align-self: flex-start;
 }
 
 .auth-modal__field {
@@ -97,7 +114,7 @@
 
 .auth-modal__submit {
   width: 100%;
-  padding: 14px;
+  padding: 16px;
   border: none;
   border-radius: 10px;
   background: linear-gradient(to right, #e61e4d 0%, #e31c5f 50%, #d70466 100%);
@@ -153,8 +170,8 @@
   transition: background 0.2s, border-color 0.2s;
 
   img {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     object-fit: contain;
   }
 
