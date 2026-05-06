@@ -18,11 +18,6 @@ export default defineConfig({
   out: 'dist',
 
   assets: {
-    // Общая папка для ассетов (шрифты, иконки, картинки, скрипты)
-    outDir: 'assets',
-    outName: '[name]',
-
-    // Картинки (оптимизируются и ресайзятся при сборке)
     images: {
       outDir: 'assets/images',
       outName: '[name]',
@@ -85,10 +80,13 @@ export default defineConfig({
     },
     preprocessorOptions: {
       scss: {
-        // Автоматически подключаем helpers во все SCSS-файлы
-        additionalData: `
-          @use '@/styles/helpers' as *;
-        `,
+        // Автоматически подключаем helpers во все SCSS-файлы, кроме самого helpers
+        additionalData: (content, filepath) => {
+          if (filepath.includes('helpers')) return content
+          return `@use 'styles/helpers' as *;\n${content}`
+        },
+        // Путь относительно src, чтобы Sass мог найти helpers
+        includePaths: [path.resolve('src')],
         // Убираем варнинги от старого API
         silenceDeprecations: ['legacy-js-api'],
       },
