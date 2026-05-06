@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import clsx from 'clsx'
 import Logo from '@/components/Logo'
+import AuthModal from '@/components/AuthModal'
 
 const LANGUAGES = [
   { code: 'en-US', label: 'English', region: 'United States' },
@@ -53,6 +54,7 @@ export default function Header({ url }) {
   const { t, i18n } = useTranslation()
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isProfileOpen, setIsProfileOpen] = useState(false)
+  const [isAuthOpen, setIsAuthOpen] = useState(false)
 
   useEffect(() => {
     document.body.style.overflow = isModalOpen ? 'hidden' : 'unset'
@@ -147,7 +149,12 @@ export default function Header({ url }) {
 
                     <div className="profile-dropdown__divider" />
 
-                    <a href="/login" className="profile-dropdown__item">{t('dropdown.signIn')}</a>
+                    <button
+                      className="profile-dropdown__item"
+                      onClick={() => { setIsAuthOpen(true); setIsProfileOpen(false) }}
+                    >
+                      {t('dropdown.signIn')}
+                    </button>
                   </div>
                 </>
               )}
@@ -234,6 +241,8 @@ export default function Header({ url }) {
           </div>
         </div>
       )}
+
+      {isAuthOpen && <AuthModal onClose={() => setIsAuthOpen(false)} />}
     </>
   )
 }
