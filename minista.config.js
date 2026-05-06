@@ -5,16 +5,16 @@ import path from 'path'
  * @see https://minista.qranoko.jp/docs/config-file
  */
 export default defineConfig({
-  // Корень проекта (обычно не меняется)
+  // Корінь проекту (зазвичай не змінюється)
   root: '',
 
-  // Базовый путь (если деплой не в корень сайта, поменяй)
+  // Базовий шлях (якщо деплой не в корінь сайту — зміни)
   base: '/',
 
-  // Папка с публичными файлами (копируются как есть)
+  // Папка з публічними файлами (копіюються як є)
   public: 'public',
 
-  // Папка для сборки (туда складывается результат)
+  // Папка для збірки (туди складається результат)
   out: 'dist',
 
   assets: {
@@ -31,36 +31,36 @@ export default defineConfig({
       },
     },
 
-    // Поддержка импорта SVG как React/JSX-компонентов
+    // Підтримка імпорту SVG як React/JSX-компонентів
     svgr: {
       svgrOptions: {},
     },
 
-    // SVG-спрайт из папки с иконками
+    // SVG-спрайт з папки з іконками
     icons: {
       srcDir: 'src/assets/icons',
       outDir: 'assets/images',
       outName: '[dirname]',
       svgstoreOptions: {
-        // Удаляем fill/stroke из символов, чтобы управлять цветом через CSS
+        // Видаляємо fill/stroke із символів, щоб керувати кольором через CSS
         cleanSymbols: ['fill', 'stroke'],
       },
     },
 
-    // Шрифты (woff2 и пр.)
+    // Шрифти (woff2 тощо)
     fonts: {
       outDir: 'assets/fonts',
       outName: '[name]',
     },
 
-    // Имя основного бандла
+    // Назва основного бандлу
     bundle: {
       outName: 'bundle',
     },
   },
 
   resolve: {
-    // Настройка алиаса @/ → src/
+    // Налаштування аліасу @/ → src/
     alias: [
       {
         find: '@/',
@@ -71,7 +71,6 @@ export default defineConfig({
 
   css: {
     modules: {
-      // Поведение CSS-модулей (используется редко, но пусть будет)
       scopeBehaviour: 'local',
       globalModulePaths: [],
       generateScopedName: undefined,
@@ -80,14 +79,14 @@ export default defineConfig({
     },
     preprocessorOptions: {
       scss: {
-        // Автоматически подключаем helpers во все SCSS-файлы, кроме самого helpers
+        // Автоматично підключаємо helpers у всі SCSS-файли, крім самого helpers
         additionalData: (content, filepath) => {
           if (filepath.includes('helpers')) return content
           return `@use 'styles/helpers' as *;\n${content}`
         },
-        // Путь относительно src, чтобы Sass мог найти helpers
+        // Шлях відносно src, щоб Sass міг знайти helpers
         includePaths: [path.resolve('src')],
-        // Убираем варнинги от старого API
+        // Прибираємо попередження від старого API
         silenceDeprecations: ['legacy-js-api'],
       },
       less: {},
@@ -95,7 +94,7 @@ export default defineConfig({
     },
   },
 
-  // Можно прокинуть дополнительные опции в Vite
+  // Додаткові опції для Vite
   vite: {
     css: {
       devSourcemap: true,
